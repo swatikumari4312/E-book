@@ -13,12 +13,12 @@ const AddBook = () => {
 
   const { data: book } = useQuery({
     queryKey: ['book', id],
-    queryFn: () => axios.get(`http://localhost:5000/api/books/${id}`).then(res => res.data),
+    queryFn: () => axios.get(`${import.meta.env.VITE_API_URL}/api/books/${id}`).then(res => res.data),
     enabled: isEdit,
   });
 
   const mutation = useMutation({
-    mutationFn: (data) => isEdit ? axios.put(`http://localhost:5000/api/books/${id}`, data) : axios.post('http://localhost:5000/api/books', data),
+    mutationFn: (data) => isEdit ? axios.put(`${import.meta.env.VITE_API_URL}/api/books/${id}`, data) : axios.post('${import.meta.env.VITE_API_URL}/api/books', data),
     onSuccess: () => {
       toast.success(isEdit ? 'Book updated!' : 'Book added!');
       navigate('/');

@@ -23,7 +23,7 @@ const Signup = () => {
       }
 
       const endpoint = isLogin ? '/api/auth/login' : '/api/auth/signup';
-      const res = await axios.post(`http://localhost:5000${endpoint}`, {
+      const res = await axios.post(`${import.meta.env.VITE_API_URL}${endpoint}`, {
         name: data.name,
         email: data.email,
         password: data.password,

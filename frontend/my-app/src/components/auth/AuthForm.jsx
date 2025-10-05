@@ -12,10 +12,10 @@ const AuthForm = ({ type, onSuccess }) => { // type: 'login' or 'signup'
   const onSubmit = async (data) => {
     try {
       const endpoint = type === 'login' ? '/api/auth/login' : '/api/auth/signup';
-      const res = await axios.post(`http://localhost:5000${endpoint}`, data);
+      const res = await axios.post(`${import.meta.env.VITE_API_URL}${endpoint}`, data);
       if (type === 'signup') {
         toast.success('Account created! Logging in...');
-        await axios.post(`http://localhost:5000/api/auth/login`, { email: data.email, password: data.password });
+        await axios.post(`${import.meta.env.VITE_API_URL}/api/auth/login`, { email: data.email, password: data.password });
       }
       onSuccess(res.data.user, res.data.token);
       toast.success(type === 'login' ? 'Welcome back!' : 'Account created!');

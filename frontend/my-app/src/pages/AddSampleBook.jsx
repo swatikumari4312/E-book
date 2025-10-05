@@ -20,7 +20,7 @@ const AddSampleBook = () => {
 
       // Add each book
       for (const book of sampleBooks) {
-        await axios.post('http://localhost:5000/api/books', book, {
+        await axios.post('${import.meta.env.VITE_API_URL}/api/books', book, {
           headers: {
             Authorization: `Bearer ${token}`,
           },

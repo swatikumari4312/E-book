@@ -15,12 +15,12 @@ const BookDetails = () => {
 
   const { data: book } = useQuery({
     queryKey: ['book', id],
-    queryFn: () => axios.get(`http://localhost:5000/api/books/${id}`).then(res => res.data),
+    queryFn: () => axios.get(`${import.meta.env.VITE_API_URL}/api/books/${id}`).then(res => res.data),
   });
 
   const { data: { reviews = [], avgRating = 0 } = {} } = useQuery({
     queryKey: ['reviews', id],
-    queryFn: () => axios.get(`http://localhost:5000/api/reviews/book/${id}`).then(res => res.data),
+    queryFn: () => axios.get(`${import.meta.env.VITE_API_URL}/api/reviews/book/${id}`).then(res => res.data),
   });
 
   if (!book) return <div>Loading...</div>;

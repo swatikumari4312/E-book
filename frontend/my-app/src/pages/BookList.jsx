@@ -20,7 +20,7 @@ const BookList = () => {
     queryKey: ['books', page, searchQuery],
     queryFn: () =>
       axios
-        .get(`http://localhost:5000/api/books?page=${page}&search=${searchQuery}`)
+        .get(`${import.meta.env.VITE_API_URL}/api/books?page=${page}&search=${searchQuery}`)
         .then(res => res.data),
   });
 

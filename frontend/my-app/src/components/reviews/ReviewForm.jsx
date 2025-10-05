@@ -14,7 +14,7 @@ const ReviewForm = ({ bookId, isOpen, onClose, initialData = {} }) => {
   });
 
   const mutation = useMutation({
-    mutationFn: (data) => axios.post('http://localhost:5000/api/reviews', { ...data, bookId, rating }),
+    mutationFn: (data) => axios.post('${import.meta.env.VITE_API_URL}/api/reviews', { ...data, bookId, rating }),
     onSuccess: () => {
       queryClient.invalidateQueries(['reviews', bookId]);
       toast.success('Review added!');

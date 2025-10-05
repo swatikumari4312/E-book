@@ -7,7 +7,7 @@ import axios from 'axios';
 const BookCard = ({ book }) => {
   const { data: avgRating } = useQuery({
     queryKey: ['reviews', book._id],
-    queryFn: () => axios.get(`http://localhost:5000/api/reviews/book/${book._id}`).then(res => res.data.avgRating),
+    queryFn: () => axios.get(`${import.meta.env.VITE_API_URL}/api/reviews/book/${book._id}`).then(res => res.data.avgRating),
   });
 
   return (

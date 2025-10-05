@@ -11,7 +11,7 @@ const ReviewItem = ({ review, currentUserId }) => {
   const queryClient = useQueryClient();
 
   const deleteMutation = useMutation({
-    mutationFn: () => axios.delete(`http://localhost:5000/api/reviews/${review._id}`),
+    mutationFn: () => axios.delete(`${import.meta.env.VITE_API_URL}/api/reviews/${review._id}`),
     onSuccess: () => {
       queryClient.invalidateQueries(['reviews']);
       toast.success('Review deleted');

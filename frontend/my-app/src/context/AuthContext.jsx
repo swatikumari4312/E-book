@@ -11,7 +11,7 @@ useEffect(() => {
     if (token) {
       try {
         axios.defaults.headers.common['Authorization'] = `Bearer ${token}`;
-        const res = await axios.get('http://localhost:5000/api/auth/me'); // endpoint to get user info
+        const res = await axios.get('${import.meta.env.VITE_API_URL}/api/auth/me'); // endpoint to get user info
         setUser(res.data);
       } catch (err) {
         console.error('Invalid token');

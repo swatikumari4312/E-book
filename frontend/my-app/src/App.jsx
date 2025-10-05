@@ -11,7 +11,7 @@ import AddBook from './pages/AddBook';
 import PrivateRoute from './components/auth/PrivateRoute';
 import './index.css'
 import './App.css'
-import AddSampleBook from './pages/AddsampleBook';
+// import AddSampleBook from './pages/AddsampleBook';
 
 const queryClient = new QueryClient();
 
