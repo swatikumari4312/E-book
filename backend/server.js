@@ -8,7 +8,10 @@ const reviewRoutes = require('./routes/reviews');
 connectDB();
 const app = express();
 app.use(cors({
-  origin: ["https://e-book-d2lq.onrender.com/"], // frontend URL
+  origin: [
+    "http://localhost:5173",       // for local frontend
+    "https://e-book-ih02.onrender.com"  // for deployed frontend
+  ], // frontend URL
   methods: ["GET", "POST", "PUT", "DELETE"],
   credentials: true
 }));
